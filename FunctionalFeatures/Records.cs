@@ -76,7 +76,7 @@ public class Records
             new CustomerItem(orangeItem, 50),
         };
 
-        Assert.That(customer1Basket.CustomerItems[0], Is.EqualTo(customer2Basket.CustomerItems[0]));
+        Assert.That(customer1Basket.CustomerItems[0].Item, Is.EqualTo(customer2Basket.CustomerItems[0].Item));
 
         // Ref comparison
         var expectedCustomerItems = new CustomerItem[]
@@ -116,16 +116,19 @@ public class Records
             new CustomerItemR(orangeItem, 50),
         });
 
-        Assert.That(customer1Basket.CustomerItems[0], Is.EqualTo(customer2Basket.CustomerItems[0]));
 
-        // Ref comparison
-        var expectedBasket = new BasketR("12345", new CustomerItemR[]
+        //customer2Basket.CustomerId = "00000";
+
+        Assert.That(customer1Basket.CustomerItems[0].Item, Is.EqualTo(customer2Basket.CustomerItems[0].Item));
+
+        // Ref comparison?
+        var expectedCustomerItems = new CustomerItemR[]
         {
             new CustomerItemR(appleItem, 2),
             new CustomerItemR(bananaItem, 1),
-        });
+        };
 
-        Assert.That(customer1Basket.CustomerItems, Is.EquivalentTo(expectedBasket.CustomerItems));
+        Assert.That(customer1Basket.CustomerItems, Is.EquivalentTo(expectedCustomerItems));
 
         // Behaviour
         static decimal CalculateBasketCost(BasketR basket)

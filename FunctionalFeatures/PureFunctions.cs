@@ -44,7 +44,7 @@ public class PureFunctions
 
         Assert.That(dinner.Rating, Is.EqualTo(Rating.Five));
     }
-
+        
     private static void DetermineRating(Dinner dinner)
     {
         if (dinner.Main.ToLowerInvariant() == "pizza")

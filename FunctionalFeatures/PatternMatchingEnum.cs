@@ -68,7 +68,6 @@ public class PatternMatchingEnum
             Fruit.Apple => Chop(selectedFruit),
             Fruit.Banana => Peel(selectedFruit),
             Fruit.Orange => Peel(selectedFruit),
-            _ => throw new NotImplementedException(),
         };
 
         Assert.That(processedFruit, Is.EqualTo(expectedResult));
